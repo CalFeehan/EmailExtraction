@@ -13,7 +13,7 @@ namespace EmailExtraction
             string path = @"C:\Users\Callum.Feehan\OneDrive\Documents\Apprenticeship\C Sharp Bootcamp\EmailExtraction\EmailExtraction\EmailExtraction\text.txt";
             string text = File.ReadAllText(path);
 
-            Regex rx = new Regex(@"[\.\'\%\+\-a-zA-Z0-9_]+@[\.\'\%\+\-a-zA-Z0-9_]+\.[a-zA-Z\.]+[ \n\t]+");
+            Regex rx = new Regex(@"[\.\'\%\+\-a-zA-Z0-9_]+@[\.\'\%\+\-a-zA-Z0-9_]+\.[a-zA-Z\.]+\b");
 
             // int count = rx.Matches(text).Count();
             MatchCollection matches = rx.Matches(text);
@@ -31,8 +31,7 @@ namespace EmailExtraction
                     dict.Add(emailEnd, 1);
                 }
             }
-
-            foreach (KeyValuePair<string, int> pair in dict.OrderByDescending(key => key.Value))
+            foreach (KeyValuePair<string, int> pair in dict)
             {
                 Console.WriteLine($"Key {pair.Key} Value {pair.Value}");
             }
