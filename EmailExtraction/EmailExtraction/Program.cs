@@ -13,7 +13,7 @@ namespace EmailExtraction
             string path = @"C:\Users\Callum.Feehan\OneDrive\Documents\Apprenticeship\C Sharp Bootcamp\EmailExtraction\EmailExtraction\EmailExtraction\text.txt";
             string text = File.ReadAllText(path);
 
-            Regex rx = new Regex(@"[\.\'\%\+\-a-zA-Z0-9_]+@[\.\'\%\+\-a-zA-Z0-9_]+\.[a-zA-Z\.]+\b");
+            Regex rx = new Regex(@"[.'%+\-\w]+@[.'%+\-\w]+\.[a-zA-Z.]+\b");
 
             // int count = rx.Matches(text).Count();
             MatchCollection matches = rx.Matches(text);
